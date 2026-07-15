@@ -112,9 +112,9 @@ For larger servos, use an external regulated 5V power supply and connect the pow
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/hand-servo-ros2.git
+git clone https://github.com/mat428/slider-servo-ros2-docker.git
 
-cd hand-servo-ros2
+cd slider-servo-ros2-docker
 ```
 
 Build the Docker image:
