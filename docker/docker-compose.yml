@@ -1,17 +1,17 @@
 services:
-  ros2:
+  f1gym:
     build:
       context: .
       dockerfile: Dockerfile
-
     container_name: f1gym_ros2
-
     network_mode: host
-
     stdin_open: true
     tty: true
-
+    environment:
+      ROS_DOMAIN_ID: 0
+      ROS_LOCALHOST_ONLY: 0
     volumes:
+      - ../sim_ws:/sim_ws
+      - ../simulator/f1tenth_gym:/opt/f1tenth_gym
       - ../ros2_ws:/workspace/ros2_ws
-
-    working_dir: /workspace
+    command: bash
