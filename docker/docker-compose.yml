@@ -11,7 +11,7 @@ services:
       ROS_DOMAIN_ID: 0
       ROS_LOCALHOST_ONLY: 0
     volumes:
-      - ../sim_ws:/sim_ws
+      - ../ros2_ws:/sim_ws
       - ../simulator/f1tenth_gym:/opt/f1tenth_gym
-      - ../ros2_ws:/workspace/ros2_ws
+    working_dir: /sim_ws
     command: bash
