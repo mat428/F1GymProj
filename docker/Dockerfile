@@ -27,10 +27,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN rosdep init || true && rosdep update || true
 
-RUN python3 -m venv /opt/venv
+RUN python3 -m venv --system-site-packages /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip install --upgrade pip setuptools wheel
+COPY simulator/f1tenth_gym /opt/f1tenth_gym
+
+RUN pip install --no-cache-dir -e /opt/f1tenth_gym
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
 RUN echo "source /opt/venv/bin/activate" >> /root/.bashrc
