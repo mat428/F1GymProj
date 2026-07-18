@@ -1,0 +1,22 @@
+services:
+  f1gym_ros2:
+    image: f1tenth-bridge:0.1
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: f1gym_ros2
+    network_mode: host
+    ipc: host
+    stdin_open: true
+    tty: true
+    environment:
+      ROS_DOMAIN_ID: "0"
+      ROS_LOCALHOST_ONLY: "0"
+      FASTDDS_BUILTIN_TRANSPORTS: UDPv4
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ../ros2_ws:/sim_ws
+      - ../simulator/f1tenth_gym:/opt/f1tenth_gym
+    working_dir: /sim_ws
+    entrypoint: ["/bin/bash", "/opt/entrypoint.sh"]
+    command: ["bash"] 

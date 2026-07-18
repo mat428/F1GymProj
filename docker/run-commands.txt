@@ -1,0 +1,33 @@
+
+On HOST > build docker and then enter the container: 
+
+cd ~/F1GymProj/docker
+docker compose down --remove-orphans
+docker compose build --no-cache
+docker compose up -d
+
+./docker/shell.sh
+
+
+
+
+run inside the container:
+
+source /opt/ros/jazzy/setup.bash
+source /opt/venv/bin/activate
+cd /sim_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch my_f1tenth_bridge bridge.launch.py
+
+
+
+
+
+To commit to GIT(modify the comment and version)> 
+
+git add .
+git commit -m "v0.1.0 - Stable development environment"
+git tag v0.1.0
+git push
+git push origin v0.1.0
