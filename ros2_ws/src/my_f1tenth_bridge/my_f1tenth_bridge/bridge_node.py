@@ -13,6 +13,9 @@ from rclpy.qos import (
     QoSReliabilityPolicy,
 )
 from sensor_msgs.msg import LaserScan
+from nav_msgs.msg import Odometry
+from scipy.spatial.transform import Rotation
+
 
 
 class BridgeNode(Node):
@@ -39,6 +42,9 @@ class BridgeNode(Node):
             durability=QoSDurabilityPolicy.VOLATILE,
         )
         self.scan_pub = self.create_publisher(LaserScan, self.scan_topic, scan_qos)
+        self.odom_pub = self.create_publisher(Odometry, "/odom", 10)
+
+
 
         self.get_logger().info("Bridge node started.")
         self.get_logger().info(f"map_path: {self.map_path}")
@@ -72,7 +78,8 @@ class BridgeNode(Node):
         action = np.array([[0.0, 0.0]])
 
         self.obs, reward, terminated, truncated, info = self.env.step(action)
-
+        
+        #SCAN:
         scan = self.obs["scans"][0]
 
         msg = LaserScan()
@@ -89,6 +96,45 @@ class BridgeNode(Node):
         self.scan_pub.publish(msg)
         self.get_logger().info("Published /scan")
 
+        #ODOM:
+        # Extract simulator state
+        x = float(self.obs["poses_x"][0])
+        y = float(self.obs["poses_y"][0])
+        theta = float(self.obs["poses_theta"][0])
+
+        vx = float(self.obs["linear_vels_x"][0])
+        vy = float(self.obs["linear_vels_y"][0])
+        wz = float(self.obs["ang_vels_z"][0])
+
+        # Convert yaw to quaternion
+        quat = Rotation.from_euler("z", theta).as_quat()
+        qx, qy, qz, qw = quat
+
+        # Build Odometry message
+        odom = Odometry()
+        odom.header.stamp = self.get_clock().now().to_msg()
+        odom.header.frame_id = "odom"
+        odom.child_frame_id = "base_link"
+
+        odom.pose.pose.position.x = x
+        odom.pose.pose.position.y = y
+        odom.pose.pose.position.z = 0.0
+
+        odom.pose.pose.orientation.x = qx
+        odom.pose.pose.orientation.y = qy
+        odom.pose.pose.orientation.z = qz
+        odom.pose.pose.orientation.w = qw
+
+        odom.twist.twist.linear.x = vx
+        odom.twist.twist.linear.y = vy
+        odom.twist.twist.linear.z = 0.0
+
+        odom.twist.twist.angular.x = 0.0
+        odom.twist.twist.angular.y = 0.0
+        odom.twist.twist.angular.z = wz
+
+        self.odom_pub.publish(odom)
+        self.get_logger().info("Published /odom")
 
 def main() -> None:
     rclpy.init()
