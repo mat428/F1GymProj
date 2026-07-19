@@ -6,7 +6,13 @@ docker compose down --remove-orphans
 docker compose build --no-cache
 docker compose up -d
 
+#enter docker and exit
 ./docker/shell.sh
+
+matin@matin-VirtualBox:~/F1GymProj$ ./docker/shell.sh
+(venv) root@matin-VirtualBox:/sim_ws# exit
+exit
+matin@matin-VirtualBox:~/F1GymProj$ 
 
 
 
@@ -31,3 +37,18 @@ git commit -m "v0.1.0 - Stable development environment"
 git tag v0.1.0
 git push
 git push origin v0.1.0
+
+
+#Test command
+
+ros2 topic pub /drive ackermann_msgs/msg/AckermannDriveStamped "{
+  drive: {
+    speed: 1.0,
+    steering_angle: 0.0
+  }
+}"
+
+
+#then watch:
+
+ros2 topic echo /odom
