@@ -1,0 +1,28 @@
+[1.267s] Invoking command in '/home/matin/F1GymProj/build/my_f1tenth_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matin/F1GymProj/build/my_f1tenth_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/matin/F1GymProj/build/my_f1tenth_bridge/build --no-deps symlink_data
+[1.501s] running develop
+[1.627s] running egg_info
+[1.628s] creating my_f1tenth_bridge.egg-info
+[1.640s] writing my_f1tenth_bridge.egg-info/PKG-INFO
+[1.640s] writing dependency_links to my_f1tenth_bridge.egg-info/dependency_links.txt
+[1.640s] writing entry points to my_f1tenth_bridge.egg-info/entry_points.txt
+[1.641s] writing requirements to my_f1tenth_bridge.egg-info/requires.txt
+[1.641s] writing top-level names to my_f1tenth_bridge.egg-info/top_level.txt
+[1.641s] writing manifest file 'my_f1tenth_bridge.egg-info/SOURCES.txt'
+[1.673s] reading manifest file 'my_f1tenth_bridge.egg-info/SOURCES.txt'
+[1.673s] writing manifest file 'my_f1tenth_bridge.egg-info/SOURCES.txt'
+[1.686s] running build_ext
+[1.687s] Creating /home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages/my-f1tenth-bridge.egg-link (link to .)
+[1.687s] Installing bridge_node script to /home/matin/F1GymProj/install/my_f1tenth_bridge/lib/my_f1tenth_bridge
+[1.688s] 
+[1.688s] Installed /home/matin/F1GymProj/build/my_f1tenth_bridge
+[1.688s] running symlink_data
+[1.688s] creating /home/matin/F1GymProj/install/my_f1tenth_bridge/share/ament_index
+[1.688s] creating /home/matin/F1GymProj/install/my_f1tenth_bridge/share/ament_index/resource_index
+[1.688s] creating /home/matin/F1GymProj/install/my_f1tenth_bridge/share/ament_index/resource_index/packages
+[1.688s] symbolically linking /home/matin/F1GymProj/build/my_f1tenth_bridge/resource/my_f1tenth_bridge -> /home/matin/F1GymProj/install/my_f1tenth_bridge/share/ament_index/resource_index/packages
+[1.689s] symbolically linking /home/matin/F1GymProj/build/my_f1tenth_bridge/package.xml -> /home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge
+[1.689s] creating /home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/launch
+[1.689s] symbolically linking /home/matin/F1GymProj/build/my_f1tenth_bridge/launch/bridge.launch.py -> /home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/launch
+[1.689s] creating /home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/config
+[1.689s] symbolically linking /home/matin/F1GymProj/build/my_f1tenth_bridge/config/sim.yaml -> /home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/config
+[1.719s] Invoked command in '/home/matin/F1GymProj/build/my_f1tenth_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matin/F1GymProj/build/my_f1tenth_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/matin/F1GymProj/build/my_f1tenth_bridge/build --no-deps symlink_data

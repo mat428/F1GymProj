@@ -15,8 +15,8 @@ services:
       FASTDDS_BUILTIN_TRANSPORTS: UDPv4
       PYTHONUNBUFFERED: "1"
     volumes:
-      - ../ros2_ws:/sim_ws
+      - ../ros2_ws:/ros2_ws
       - ../simulator/f1tenth_gym:/opt/f1tenth_gym
-    working_dir: /sim_ws
+    working_dir: /ros2_ws
     entrypoint: ["/bin/bash", "/opt/entrypoint.sh"]
     command: ["bash"] 

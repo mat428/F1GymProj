@@ -15,10 +15,10 @@ source /opt/ros/jazzy/setup.bash
 source /opt/venv/bin/activate
 
 # Workspace overlay (if it exists)
-if [ -f /sim_ws/install/setup.bash ]; then
-    source /sim_ws/install/setup.bash
+if [ -f /ros2_ws/install/setup.bash ]; then
+    source /ros2_ws/install/setup.bash
 fi
 
-cd /sim_ws
+cd /ros2_ws
 
 exec "$@"

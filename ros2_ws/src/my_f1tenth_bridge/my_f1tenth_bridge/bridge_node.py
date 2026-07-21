@@ -15,6 +15,11 @@ from rclpy.qos import (
 )
 from scipy.spatial.transform import Rotation
 from sensor_msgs.msg import LaserScan
+from geometry_msgs.msg import TransformStamped
+from tf2_ros import TransformBroadcaster
+# from tf_transformations import quaternion_from_euler
+from ackermann_msgs.msg import AckermannDriveStamped
+
 
 
 class BridgeNode(Node):
@@ -22,12 +27,13 @@ class BridgeNode(Node):
         super().__init__("bridge")
 
         # Parameters
-        self.declare_parameter("map_path", "/sim_ws/src/my_f1tenth_bridge/assets/maps/levine")
+        self.declare_parameter("map_path", "/ros2_ws/src/my_f1tenth_bridge/assets/maps/levine")
         self.declare_parameter("map_ext", ".png")
         self.declare_parameter("scan_topic", "/scan")
         self.declare_parameter("odom_topic", "/odom")
         self.declare_parameter("drive_topic", "/drive")
-        self.declare_parameter("frame_id", "laser")
+
+        self.declare_parameter("frame_id", "laser_model")
         self.declare_parameter("odom_frame", "odom")
         self.declare_parameter("base_frame", "base_link")
         self.declare_parameter("scan_rate_hz", 10.0)
@@ -38,6 +44,8 @@ class BridgeNode(Node):
         self.declare_parameter("initial_x", 0.0)
         self.declare_parameter("initial_y", 0.0)
         self.declare_parameter("initial_theta", 0.0)
+
+
 
         self.map_path = self.get_parameter("map_path").value
         self.map_ext = self.get_parameter("map_ext").value
@@ -56,6 +64,10 @@ class BridgeNode(Node):
         self.initial_y = float(self.get_parameter("initial_y").value)
         self.initial_theta = float(self.get_parameter("initial_theta").value)
 
+        self.current_speed = 0.0
+        self.current_steering = 0.0
+
+
         # QoS for sensor data
         scan_qos = QoSProfile(
             depth=10,
@@ -63,8 +75,23 @@ class BridgeNode(Node):
             durability=QoSDurabilityPolicy.VOLATILE,
         )
 
+        # 2. Publishers
         self.scan_pub = self.create_publisher(LaserScan, self.scan_topic, scan_qos)
         self.odom_pub = self.create_publisher(Odometry, self.odom_topic, 10)
+
+
+
+        # 3. Subscribers
+        self.drive_sub = self.create_subscription(
+            AckermannDriveStamped,
+            self.drive_topic,
+            self._on_drive,
+            10,
+        )
+
+        # 4. TF broadcaster
+        self.tf_broadcaster = TransformBroadcaster(self)
+
 
         self.get_logger().info("Bridge node started.")
         self.get_logger().info(f"map_path: {self.map_path}")
@@ -91,7 +118,10 @@ class BridgeNode(Node):
         self._reset_sim()
         self.get_logger().info(f"Observation keys: {list(self.obs.keys())}")
 
-        # Timer
+
+
+
+        # 5. Timer
         period = 1.0 / self.scan_rate_hz if self.scan_rate_hz > 0.0 else 0.1
         self.timer = self.create_timer(period, self._on_timer)
 
@@ -105,11 +135,32 @@ class BridgeNode(Node):
             }
         )
 
+    def _on_drive(self, msg: AckermannDriveStamped) -> None:
+        # Store the latest command so the timer can apply it on the next simulator step.
+        self.current_speed = float(msg.drive.speed)
+        self.current_steering = float(msg.drive.steering_angle)
+
+        self.get_logger().info(
+            f"Received /drive: speed={self.current_speed:.3f}, "
+            f"steering={self.current_steering:.3f}"
+        )
+
+
     def _on_timer(self) -> None:
-        action = np.array([[0.0, 0.0]], dtype=np.float64)
+        action = np.array(
+            [[self.current_steering, self.current_speed]],
+            dtype=np.float64,
+        )
 
         self.obs, reward, terminated, truncated, info = self.env.step(action)
 
+
+        
+        # if terminated or truncated:
+        #     self.get_logger().warn("Episode ended; resetting simulator.")
+        #     self._reset_sim()
+        #     return
+        
         if terminated or truncated:
             self.get_logger().warn("Episode ended; resetting simulator.")
             self._reset_sim()
@@ -139,16 +190,21 @@ class BridgeNode(Node):
         self.scan_pub.publish(msg)
         self.get_logger().info("Published /scan")
 
+
+
+
         # Odometry
         x = float(self.obs["poses_x"][0])
         y = float(self.obs["poses_y"][0])
         theta = float(self.obs["poses_theta"][0])
+
 
         vx = float(self.obs["linear_vels_x"][0])
         vy = float(self.obs["linear_vels_y"][0])
         wz = float(self.obs["ang_vels_z"][0])
 
         qx, qy, qz, qw = Rotation.from_euler("z", theta).as_quat()
+
 
         odom = Odometry()
         odom.header.stamp = self.get_clock().now().to_msg()
@@ -175,6 +231,28 @@ class BridgeNode(Node):
         self.odom_pub.publish(odom)
         self.get_logger().info("Published /odom")
 
+        # TF: odom -> base_link
+        transform = TransformStamped()
+        transform.header.stamp = self.get_clock().now().to_msg()
+        transform.header.frame_id = self.odom_frame
+        transform.child_frame_id = self.base_frame
+
+        transform.transform.translation.x = x
+        transform.transform.translation.y = y
+        transform.transform.translation.z = 0.0
+
+        transform.transform.rotation.x = qx
+        transform.transform.rotation.y = qy
+        transform.transform.rotation.z = qz
+        transform.transform.rotation.w = qw
+
+        self.tf_broadcaster.sendTransform(transform)
+        self.get_logger().info("Published TF odom -> base_link")
+
+    def _close_sim(self) -> None:
+        if hasattr(self, "env") and self.env is not None:
+            self.env.close()
+
 
 def main() -> None:
     rclpy.init()
@@ -185,10 +263,10 @@ def main() -> None:
     except KeyboardInterrupt:
         node.get_logger().info("Bridge node interrupted by user.")
     finally:
+        node._close_sim()
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
-
 
 if __name__ == "__main__":
     main()

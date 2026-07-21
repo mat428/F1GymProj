@@ -1,45 +1,43 @@
 <?xml version="1.0"?>
 <package format="3">
-
   <name>my_f1tenth_bridge</name>
   <version>0.1.0</version>
+  <description>Custom ROS 2 Jazzy bridge for the F1TENTH Gym simulator.</description>
 
-  <description>
-    Custom ROS 2 Jazzy bridge for the F1TENTH Gym simulator.
-  </description>
-
-  <maintainer email="matin42854@email.com">
-    Matin Afshari
-  </maintainer>
-
+  <maintainer email="matin42854@email.com">Matin Afshari</maintainer>
   <license>MIT</license>
 
-  <!-- Build system -->
   <buildtool_depend>ament_python</buildtool_depend>
 
-  <!-- Runtime dependencies -->
+  <!-- Core ROS Python runtime -->
   <depend>rclpy</depend>
 
-  <depend>sensor_msgs</depend>
+  <!-- Messages used by the bridge and planner -->
   <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
-
   <depend>ackermann_msgs</depend>
+  
 
+  <!-- TF support for the bridge -->
   <depend>tf2_ros</depend>
 
-  <depend>xacro</depend>
+  <!-- Needed for launching the robot model -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
-  <!-- Future robot model support -->
-  <depend>robot_state_publisher</depend>
+  <!-- Python package dependencies used by the bridge/planner code -->
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
 
-  <!-- Testing -->
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <!-- If you keep tf_transformations in the planner node, this helps on ROS installs that provide it -->
+  <exec_depend>python3-tf-transformations</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
   </export>
-
 </package>

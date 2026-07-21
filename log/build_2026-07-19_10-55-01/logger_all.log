@@ -1,0 +1,543 @@
+[0.074s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.074s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7554fae6e150>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7554fae6dfd0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7554fae6dfd0>>)
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.103s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.103s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/matin/F1GymProj'
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.103s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.104s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.104s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.104s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'ignore_ament_install'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['colcon_pkg']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'colcon_pkg'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['colcon_meta']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'colcon_meta'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['ros']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'ros'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['cmake', 'python']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'cmake'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'python'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extensions ['python_setup_py']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker) by extension 'python_setup_py'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(docker/build) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/build) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/build) ignored
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/install) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/install) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/install) ignored
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/log) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/log) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docker/log) ignored
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore_ament_install'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_pkg']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_pkg'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_meta']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_meta'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ros']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ros'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['cmake', 'python']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'cmake'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['python_setup_py']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python_setup_py'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'ignore_ament_install'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['colcon_pkg']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'colcon_pkg'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['colcon_meta']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'colcon_meta'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['ros']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'ros'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['cmake', 'python']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'cmake'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'python'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extensions ['python_setup_py']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(docs/architecture) by extension 'python_setup_py'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['ignore', 'ignore_ament_install']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'ignore'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'ignore_ament_install'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['colcon_pkg']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'colcon_pkg'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['colcon_meta']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'colcon_meta'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['ros']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'ros'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['cmake', 'python']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'cmake'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'python'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extensions ['python_setup_py']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/diagrams) by extension 'python_setup_py'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['ignore', 'ignore_ament_install']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'ignore'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'ignore_ament_install'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['colcon_pkg']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'colcon_pkg'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['colcon_meta']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'colcon_meta'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['ros']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'ros'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['cmake', 'python']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'cmake'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'python'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extensions ['python_setup_py']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(docs/images) by extension 'python_setup_py'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['ignore', 'ignore_ament_install']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'ignore'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'ignore_ament_install'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['colcon_pkg']
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'colcon_pkg'
+[0.125s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['colcon_meta']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'colcon_meta'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['ros']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'ros'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['cmake', 'python']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'cmake'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'python'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extensions ['python_setup_py']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(experiments) by extension 'python_setup_py'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore_ament_install'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_pkg']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_pkg'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_meta']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_meta'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ros']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ros'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['cmake', 'python']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'cmake'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['python_setup_py']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python_setup_py'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore_ament_install'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_pkg']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_pkg'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_meta']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_meta'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ros']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ros'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['cmake', 'python']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'cmake'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['python_setup_py']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python_setup_py'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extension 'ignore'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extension 'ignore_ament_install'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extensions ['colcon_pkg']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extension 'colcon_pkg'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extensions ['colcon_meta']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extension 'colcon_meta'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extensions ['ros']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/my_f1tenth_bridge) by extension 'ros'
+[0.140s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/my_f1tenth_bridge' with type 'ros.ament_python' and name 'my_f1tenth_bridge'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'python']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ignore'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ignore_ament_install'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['colcon_pkg']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'colcon_pkg'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['colcon_meta']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'colcon_meta'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['ros']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'ros'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['cmake', 'python']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'cmake'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'python'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extensions ['python_setup_py']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator) by extension 'python_setup_py'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['ignore', 'ignore_ament_install']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'ignore'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'ignore_ament_install'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['colcon_pkg']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'colcon_pkg'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['colcon_meta']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'colcon_meta'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['ros']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'ros'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['cmake', 'python']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'cmake'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'python'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extensions ['python_setup_py']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym) by extension 'python_setup_py'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'ignore'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'ignore_ament_install'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['colcon_pkg']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'colcon_pkg'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['colcon_meta']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'colcon_meta'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['ros']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'ros'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['cmake', 'python']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'cmake'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'python'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extensions ['python_setup_py']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs) by extension 'python_setup_py'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['ignore', 'ignore_ament_install']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'ignore'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'ignore_ament_install'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['colcon_pkg']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'colcon_pkg'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['colcon_meta']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'colcon_meta'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['ros']
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'ros'
+[0.141s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'ignore_ament_install'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['colcon_pkg']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'colcon_pkg'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['colcon_meta']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'colcon_meta'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['ros']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'ros'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/css) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'ignore_ament_install'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['colcon_pkg']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'colcon_pkg'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['colcon_meta']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'colcon_meta'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['ros']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'ros'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/_static/js) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'ignore_ament_install'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['colcon_pkg']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'colcon_pkg'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['colcon_meta']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'colcon_meta'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['ros']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'ros'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['cmake', 'python']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'cmake'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'python'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extensions ['python_setup_py']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/api) by extension 'python_setup_py'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'ignore'
+[0.142s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['colcon_meta']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'colcon_meta'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['ros']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/assets) by extension 'python_setup_py'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['ignore', 'ignore_ament_install']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'ignore'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['colcon_meta']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'colcon_meta'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['ros']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html) by extension 'python_setup_py'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['ignore', 'ignore_ament_install']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'ignore'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'ignore_ament_install'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['colcon_pkg']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'colcon_pkg'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['colcon_meta']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'colcon_meta'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['ros']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'ros'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['cmake', 'python']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'cmake'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'python'
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extensions ['python_setup_py']
+[0.143s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/html/search) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'ignore'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'ignore_ament_install'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['colcon_pkg']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'colcon_pkg'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['colcon_meta']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'colcon_meta'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['ros']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/docs/xml) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'ignore'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'ignore_ament_install'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['colcon_pkg']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'colcon_pkg'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['colcon_meta']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'colcon_meta'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['ros']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/examples) by extension 'python_setup_py'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['ignore', 'ignore_ament_install']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'ros'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['cmake', 'python']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'cmake'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'python'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extensions ['python_setup_py']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/__pycache__) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'colcon_meta'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['ros']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'ros'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['cmake', 'python']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'cmake'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'python'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extensions ['python_setup_py']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs) by extension 'python_setup_py'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'ignore'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'ignore_ament_install'
+[0.146s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['colcon_pkg']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'colcon_pkg'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['colcon_meta']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'colcon_meta'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['ros']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'ros'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['cmake', 'python']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'cmake'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'python'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extensions ['python_setup_py']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/__pycache__) by extension 'python_setup_py'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['ignore', 'ignore_ament_install']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'ignore'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'ignore_ament_install'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['colcon_pkg']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'colcon_pkg'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['colcon_meta']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'colcon_meta'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['ros']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'ros'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['cmake', 'python']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'cmake'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'python'
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extensions ['python_setup_py']
+[0.147s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/envs/maps) by extension 'python_setup_py'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'ignore_ament_install'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['colcon_pkg']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'colcon_pkg'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['colcon_meta']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'colcon_meta'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['ros']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'ros'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['cmake', 'python']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'cmake'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'python'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extensions ['python_setup_py']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym/unittest) by extension 'python_setup_py'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['ignore', 'ignore_ament_install']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'ignore'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'ignore_ament_install'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['colcon_pkg']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'colcon_pkg'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['colcon_meta']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'colcon_meta'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['ros']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'ros'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['cmake', 'python']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'cmake'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'python'
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extensions ['python_setup_py']
+[0.148s] Level 1:colcon.colcon_core.package_identification:_identify(simulator/f1tenth_gym/gym/f110_gym.egg-info) by extension 'python_setup_py'
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.163s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/matin/F1GymProj/docker/install
+[0.164s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 287 installed packages in /opt/ros/jazzy
+[0.164s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_args' from command line to 'None'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_target' from command line to 'None'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.190s] Level 5:colcon.colcon_core.verb:set package 'my_f1tenth_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.190s] DEBUG:colcon.colcon_core.verb:Building package 'my_f1tenth_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/matin/F1GymProj/build/my_f1tenth_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/matin/F1GymProj/install/my_f1tenth_bridge', 'merge_install': False, 'path': '/home/matin/F1GymProj/ros2_ws/src/my_f1tenth_bridge', 'symlink_install': True, 'test_result_base': None}
+[0.190s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.192s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.192s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/matin/F1GymProj/ros2_ws/src/my_f1tenth_bridge' with build type 'ament_python'
+[0.192s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_f1tenth_bridge', 'ament_prefix_path')
+[0.194s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/ament_prefix_path.ps1'
+[0.196s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/ament_prefix_path.dsv'
+[0.197s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/ament_prefix_path.sh'
+[0.198s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.198s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.370s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/matin/F1GymProj/ros2_ws/src/my_f1tenth_bridge'
+[0.370s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.370s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.214s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: dist_info, install_egg_info, bdist_egg, egg_info, editable_wheel, upload, upload_docs, clean, install_scripts, install_data, build, install_lib, extract_messages, bdist_wheel, build_ext, symlink_data, develop, compile_catalog, bdist_rpm, build_scripts, saveopts, register, rotate, init_catalog, bdist, setopt, update_catalog, install_headers, build_clib, bdist_dumb, check, test, sdist, build_py, alias, easy_install, install
+[1.459s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --help, --zip-ok, --optimize, --version, --build-directory, --no-user-cfg, --index-url, --install-dir, --no-deps, --multi-version, --dry-run, --no-find-links, --script-dir, --editable, --verbose, --record, --find-links, --exclude-scripts, --local-snapshots-ok, --upgrade, --uninstall, --egg-path, --always-unzip, --user, --install-layout, --allow-hosts, --force-installation-into-system-dir, --always-copy, --quiet, --prefix, --site-dirs
+[1.460s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/matin/F1GymProj/build/my_f1tenth_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matin/F1GymProj/build/my_f1tenth_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/matin/F1GymProj/build/my_f1tenth_bridge/build --no-deps symlink_data
+[1.912s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_f1tenth_bridge', 'pythonpath_develop')
+[1.912s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/build/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath_develop.ps1'
+[1.913s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/matin/F1GymProj/build/my_f1tenth_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matin/F1GymProj/build/my_f1tenth_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/matin/F1GymProj/build/my_f1tenth_bridge/build --no-deps symlink_data
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/matin/F1GymProj/build/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath_develop.dsv'
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/build/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath_develop.sh'
+[1.939s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge' for CMake module files
+[1.939s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge' for CMake config files
+[1.939s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge/lib'
+[1.940s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge/bin'
+[1.940s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/pkgconfig/my_f1tenth_bridge.pc'
+[1.940s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages'
+[1.940s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_f1tenth_bridge', 'pythonpath')
+[1.940s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath.ps1'
+[1.941s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath.dsv'
+[1.941s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/hook/pythonpath.sh'
+[1.942s] Level 1:colcon.colcon_core.environment:checking '/home/matin/F1GymProj/install/my_f1tenth_bridge/bin'
+[1.942s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_f1tenth_bridge)
+[1.942s] INFO:colcon.colcon_core.shell:Creating package script '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/package.ps1'
+[1.944s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/package.dsv'
+[1.945s] INFO:colcon.colcon_core.shell:Creating package script '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/package.sh'
+[1.948s] INFO:colcon.colcon_core.shell:Creating package script '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/package.bash'
+[1.949s] INFO:colcon.colcon_core.shell:Creating package script '/home/matin/F1GymProj/install/my_f1tenth_bridge/share/my_f1tenth_bridge/package.zsh'
+[1.950s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/matin/F1GymProj/install/my_f1tenth_bridge/share/colcon-core/packages/my_f1tenth_bridge)
+[1.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.951s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.962s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.962s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.962s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.994s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.995s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/matin/F1GymProj/install/local_setup.ps1'
+[1.997s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/matin/F1GymProj/install/_local_setup_util_ps1.py'
+[1.998s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/matin/F1GymProj/install/setup.ps1'
+[1.998s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/matin/F1GymProj/install/local_setup.sh'
+[1.999s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/matin/F1GymProj/install/_local_setup_util_sh.py'
+[1.999s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/matin/F1GymProj/install/setup.sh'
+[1.999s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/matin/F1GymProj/install/local_setup.bash'
+[2.000s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/matin/F1GymProj/install/setup.bash'
+[2.000s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/matin/F1GymProj/install/local_setup.zsh'
+[2.000s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/matin/F1GymProj/install/setup.zsh'

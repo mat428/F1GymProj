@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing my_f1tenth_bridge.egg-info/PKG-INFO
+writing dependency_links to my_f1tenth_bridge.egg-info/dependency_links.txt
+writing entry points to my_f1tenth_bridge.egg-info/entry_points.txt
+writing requirements to my_f1tenth_bridge.egg-info/requires.txt
+writing top-level names to my_f1tenth_bridge.egg-info/top_level.txt
+reading manifest file 'my_f1tenth_bridge.egg-info/SOURCES.txt'
+writing manifest file 'my_f1tenth_bridge.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/matin/F1GymProj/install/my_f1tenth_bridge/lib/python3.12/site-packages/my-f1tenth-bridge.egg-link (link to .)
+Installing bridge_node script to /home/matin/F1GymProj/install/my_f1tenth_bridge/lib/my_f1tenth_bridge
+
+Installed /home/matin/F1GymProj/build/my_f1tenth_bridge
+running symlink_data

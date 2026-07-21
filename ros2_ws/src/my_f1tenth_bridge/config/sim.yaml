@@ -5,7 +5,7 @@ bridge:
     # Simulator
     # ==========================================================
 
-    map_path: "/sim_ws/src/my_f1tenth_bridge/assets/maps/levine"
+    map_path: "/ros2_ws/src/my_f1tenth_bridge/assets/maps/levine"
     map_ext: ".png"
 
     initial_x: 0.0
@@ -26,7 +26,7 @@ bridge:
     # Frames
     # ==========================================================
 
-    frame_id: "laser"
+    frame_id: "laser_model"
     odom_frame: "odom"
     base_frame: "base_link"
 

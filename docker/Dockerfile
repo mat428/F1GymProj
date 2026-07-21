@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-jazzy-nav2-map-server \
     ros-jazzy-teleop-twist-keyboard \
     ros-jazzy-xacro \
+    ros-jazzy-tf-transformations \
  && rm -rf /var/lib/apt/lists/*
 
 RUN rosdep init || true && rosdep update || true
@@ -49,6 +50,6 @@ RUN chmod +x /opt/entrypoint.sh
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
-WORKDIR /sim_ws
+WORKDIR /ros2_ws
 
 CMD ["bash"]

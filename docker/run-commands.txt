@@ -6,11 +6,11 @@ docker compose down --remove-orphans
 docker compose build --no-cache
 docker compose up -d
 
-#enter docker and exit
+#Example        enter docker and exit
 ./docker/shell.sh
 
 matin@matin-VirtualBox:~/F1GymProj$ ./docker/shell.sh
-(venv) root@matin-VirtualBox:/sim_ws# exit
+(venv) root@matin-VirtualBox:/ros2_ws# exit
 exit
 matin@matin-VirtualBox:~/F1GymProj$ 
 
@@ -21,7 +21,7 @@ run inside the container:
 
 source /opt/ros/jazzy/setup.bash
 source /opt/venv/bin/activate
-cd /sim_ws
+cd /ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ros2 launch my_f1tenth_bridge bridge.launch.py
@@ -52,3 +52,22 @@ ros2 topic pub /drive ackermann_msgs/msg/AckermannDriveStamped "{
 #then watch:
 
 ros2 topic echo /odom
+
+
+
+
+# stage 9 running commands> 
+
+in container> 
+cd /ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 run my_f1tenth_bridge pure_pursuit_planner
+
+
+host>   rviz2
+
+in second container> 
+
+source install/setup.bash
+ros2 launch my_f1tenth_bridge bridge.launch.py
