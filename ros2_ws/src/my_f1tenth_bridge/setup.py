@@ -32,6 +32,10 @@ setup(
             f"share/{package_name}/assets/maps",
             ["assets/maps/levine.png"],
         ),
+        (
+            f"share/{package_name}/assets/waypoints",
+            ["assets/waypoints/levine_centerline.csv"],
+        ),
     ],
 
     install_requires=[

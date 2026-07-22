@@ -39,3 +39,18 @@ bridge:
 
     range_min: 0.0
     range_max: 30.0
+
+
+
+#=================================
+
+pure_pursuit_planner:
+  ros__parameters:
+    odom_topic: /odom
+    drive_topic: /drive
+    lookahead_distance: 1.5
+    target_speed: 0.6
+    wheelbase: 0.33
+    control_rate_hz: 20.0
+
+    

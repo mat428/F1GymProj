@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import math
-from typing import List, Tuple
 
 import rclpy
 from ackermann_msgs.msg import AckermannDriveStamped
 from nav_msgs.msg import Odometry
 from rclpy.node import Node
 from scipy.spatial.transform import Rotation
+from typing import List, Tuple, Sequence
+
+from .controllers.pure_pursuit import PurePursuitController
+from .planners.waypoint_manager import WaypointManager
 
 
 class PurePursuitPlanner(Node):
@@ -23,6 +26,26 @@ class PurePursuitPlanner(Node):
         self.declare_parameter("target_speed", 0.6)
         self.declare_parameter("wheelbase", 0.33)
         self.declare_parameter("control_rate_hz", 20.0)
+        self.declare_parameter(
+            "waypoint_file",
+            "/ros2_ws/src/my_f1tenth_bridge/assets/waypoints/levine_centerline.csv",
+        )
+
+        # self.declare_parameter(
+        #     "waypoints_flat",
+        #     [
+        #         0.5, 0.5,
+        #         1.5, 0.5,
+        #         2.5, -0.5,
+        #         3.5, -0.5,
+        #         4.5, -0.5,
+        #         5.5, 0.5,
+        #         6.5, 0.5,
+        #         7.5, -0.5,
+        #         8.5, -0.5,
+        #         9.5, 0.5,
+        #     ],
+        # )
 
         self.odom_topic = self.get_parameter("odom_topic").value
         self.drive_topic = self.get_parameter("drive_topic").value
@@ -30,6 +53,10 @@ class PurePursuitPlanner(Node):
         self.target_speed = float(self.get_parameter("target_speed").value)
         self.wheelbase = float(self.get_parameter("wheelbase").value)
         self.control_rate_hz = float(self.get_parameter("control_rate_hz").value)
+        
+
+        # Controller
+        self.controller = PurePursuitController(self.wheelbase)
 
         # State from odometry
         self.x = 0.0
@@ -37,23 +64,16 @@ class PurePursuitPlanner(Node):
         self.yaw = 0.0
         self.odom_received = False
 
-        # A simple example waypoint path in odom frame
-        # Replace these with your real track points later.
-        self.waypoints: List[Tuple[float, float]] = [
+        # Waypoints
 
-            (0.5, 0.5),
-            (1.5, 0.5),
-            (2.5, -0.5),
-            (3.5, -0.5),
-            (4.5, -0.5),
-            (5.5, 0.5),
-            (6.5, 0.5),
-            (7.5, -0.5),
-            (8.5, -0.5),
-            (9.5, 0.5),
+        # waypoints_flat = self.get_parameter("waypoints_flat").value
+        # self.waypoint_manager = WaypointManager(self._parse_waypoints(waypoints_flat))
+        
+        waypoint_file = self.get_parameter("waypoint_file").value
+        self.waypoint_manager = WaypointManager()
+        self.waypoint_manager.load_from_csv(waypoint_file)  
 
-        ]
-        self.current_waypoint_index = 0
+
 
         # ROS interfaces
         self.odom_sub = self.create_subscription(
@@ -90,14 +110,25 @@ class PurePursuitPlanner(Node):
         self.odom_received = True
 
 
+    # def _parse_waypoints(self, flat: Sequence[float]) -> List[Tuple[float, float]]:
+    #     values = [float(v) for v in flat]
+    #     if len(values) % 2 != 0:
+    #         raise ValueError("waypoints_flat must contain an even number of values")
+
+    #     return [(values[i], values[i + 1]) for i in range(0, len(values), 2)]
+
     def _on_timer(self) -> None:
-        if not self.odom_received or not self.waypoints:
+        if not self.odom_received or not self.waypoint_manager.waypoints:
             return
 
-        final_x, final_y = self.waypoints[-1]
+        final_x, final_y = self.waypoint_manager.waypoints[-1]
         final_dist = math.hypot(final_x - self.x, final_y - self.y)
 
-        if self.current_waypoint_index >= len(self.waypoints) - 1 and final_dist < 0.5:
+        # Stop at the end of the path
+        if (
+            self.waypoint_manager.current_waypoint_index >= len(self.waypoint_manager.waypoints) - 1
+            and final_dist < 0.5
+        ):
             drive_msg = AckermannDriveStamped()
             drive_msg.header.stamp = self.get_clock().now().to_msg()
             drive_msg.header.frame_id = "base_link"
@@ -106,11 +137,21 @@ class PurePursuitPlanner(Node):
             self.drive_pub.publish(drive_msg)
             return
 
-        target_point = self._find_lookahead_point()
+        target_point = self.waypoint_manager.get_lookahead_point(
+            self.x,
+            self.y,
+            self.lookahead_distance,
+        )
+
         if target_point is None:
             return
 
-        steering = self._compute_steering_angle(target_point)
+        steering = self.controller.compute_steering(
+            x=self.x,
+            y=self.y,
+            yaw=self.yaw,
+            target_point=target_point,
+        )
 
         drive_msg = AckermannDriveStamped()
         drive_msg.header.stamp = self.get_clock().now().to_msg()
@@ -118,55 +159,6 @@ class PurePursuitPlanner(Node):
         drive_msg.drive.speed = float(self.target_speed)
         drive_msg.drive.steering_angle = float(steering)
         self.drive_pub.publish(drive_msg)
-
-
-
-    def _find_lookahead_point(self) -> Tuple[float, float] | None:
-        """
-        Find the first waypoint at least lookahead_distance ahead of the robot.
-        If none is found, use the final waypoint.
-        """
-        for i in range(self.current_waypoint_index, len(self.waypoints)):
-            wx, wy = self.waypoints[i]
-            dist = math.hypot(wx - self.x, wy - self.y)
-            if dist >= self.lookahead_distance:
-                self.current_waypoint_index = i
-                return wx, wy
-            
-
-
-        if self.waypoints:
-            self.current_waypoint_index = len(self.waypoints) - 1
-            return self.waypoints[-1]
-
-        return None
-
-    def _compute_steering_angle(self, target_point: Tuple[float, float]) -> float:
-        """
-        Pure Pursuit steering law.
-        """
-        tx, ty = target_point
-
-        dx = tx - self.x
-        dy = ty - self.y
-
-        # Transform target into vehicle frame
-        local_x = math.cos(-self.yaw) * dx - math.sin(-self.yaw) * dy
-        local_y = math.sin(-self.yaw) * dx + math.cos(-self.yaw) * dy
-
-        # If the point is behind us, do not try to steer to it aggressively
-        if local_x <= 0.0:
-            return 0.0
-
-        # Curvature and steering
-        ld2 = local_x * local_x + local_y * local_y
-        if ld2 < 1e-6:
-            return 0.0
-
-        curvature = 2.0 * local_y / ld2
-        steering = math.atan(self.wheelbase * curvature)
-
-        return steering
 
 
 def main() -> None:
