@@ -1,6 +1,4 @@
 from setuptools import find_packages, setup
-from glob import glob
-import os
 
 package_name = "my_f1tenth_bridge"
 
@@ -10,39 +8,30 @@ setup(
     packages=find_packages(exclude=["test"]),
 
     data_files=[
-        # Register the package with the ROS 2 package index.
         (
             "share/ament_index/resource_index/packages",
             [f"resource/{package_name}"],
         ),
-
-        # Install package.xml into the package share directory.
         (
             f"share/{package_name}",
-            [
-                "package.xml",
-            ],
+            ["package.xml"],
         ),
-
-        # Install launch files so they are available after colcon build.
         (
             f"share/{package_name}/launch",
-            glob("launch/*.py"),
+            ["launch/bridge.launch.py"],
         ),
-
-        # Install configuration files.
         (
             f"share/{package_name}/config",
-            glob("config/*"),
+            ["config/sim.yaml"],
         ),
-
-        # Install URDF/Xacro assets so robot_state_publisher can load them.
         (
-            f"share/{package_name}/assets/urdf",
-            glob("assets/urdf/*"),
+            f"share/{package_name}/urdf",
+            ["urdf/racecar.urdf.xacro", "urdf/opp_racecar.xacro"],
         ),
-
-        # Install any planner path files or other plain text assets later if needed.
+        (
+            f"share/{package_name}/assets/maps",
+            ["assets/maps/levine.png"],
+        ),
     ],
 
     install_requires=[
@@ -54,10 +43,7 @@ setup(
     maintainer="Matin Afshari",
     maintainer_email="matin42854@email.com",
 
-    description=(
-        "Custom ROS 2 Jazzy bridge for the F1TENTH Gym simulator."
-    ),
-
+    description="Custom ROS 2 Jazzy bridge for the F1TENTH Gym simulator.",
     license="MIT",
 
     keywords=[
@@ -79,10 +65,7 @@ setup(
 
     entry_points={
         "console_scripts": [
-            # Main simulator bridge node.
             "bridge_node = my_f1tenth_bridge.bridge_node:main",
-
-            # Pure Pursuit planner node.
             "pure_pursuit_planner = my_f1tenth_bridge.planner_node:main",
         ],
     },
