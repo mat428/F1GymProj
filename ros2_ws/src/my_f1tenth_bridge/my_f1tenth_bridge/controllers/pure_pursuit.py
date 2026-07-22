@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 from typing import Tuple
+from ..utils.vehicle_state import VehicleState
 
 
 class PurePursuitController:
@@ -14,9 +15,7 @@ class PurePursuitController:
 
     def compute_steering(
         self,
-        x: float,
-        y: float,
-        yaw: float,
+        state: VehicleState,
         target_point: Tuple[float, float],
     ) -> float:
         """
@@ -33,12 +32,12 @@ class PurePursuitController:
         """
         tx, ty = target_point
 
-        dx = tx - x
-        dy = ty - y
+        dx = tx - state.x
+        dy = ty - state.y
 
         # Transform target into vehicle frame
-        local_x = math.cos(-yaw) * dx - math.sin(-yaw) * dy
-        local_y = math.sin(-yaw) * dx + math.cos(-yaw) * dy
+        local_x = math.cos(-state.yaw) * dx - math.sin(-state.yaw) * dy
+        local_y = math.sin(-state.yaw) * dx + math.cos(-state.yaw) * dy
 
         # If the point is behind us, do not steer aggressively toward it
         if local_x <= 0.0:

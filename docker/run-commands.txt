@@ -33,10 +33,10 @@ ros2 launch my_f1tenth_bridge bridge.launch.py
 To commit to GIT(modify the comment and version)> 
 
 git add .
-git commit -m "v0.1.31 -  pur-pursuit working lidar adjusted2"
-git tag v0.1.31
+git commit -m "v0.1.32 -  pur-pursuit separated"
+git tag v0.1.32
 git push
-git push origin v0.1.31
+git push origin v0.1.32
 
 
 #Test command

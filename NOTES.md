@@ -1,173 +1,135 @@
 
-# Development Notes
+# Project Notes
 
-This file records important engineering decisions, debugging sessions, architectural choices, and lessons learned during development.
+## Current Status
 
----
+The bridge is fully operational.
 
-# Environment
+ROS 2 ↔ F1TENTH Gym communication works.
 
-Host
+Published
 
-* Ubuntu VM
-* Docker
-* RViz
-* VS Code
-* Git
+- LaserScan
+- Odometry
+- TF
 
-Container
+Subscribed
 
-* ROS 2 Jazzy
-* Python virtual environment
-* F1TENTH Gym
-* Colcon
-* Bridge package
+- Ackermann Drive
+
+RViz visualization is operational.
 
 ---
 
-# DDS Communication
+## Software Architecture
 
-Initial issue:
+Planner Node
 
-Topics were discovered but LaserScan messages were not received on the host.
+Responsible for
 
-Solution:
+- ROS interfaces
+- planner orchestration
+- publishing drive commands
 
-```text
-FASTDDS_BUILTIN_TRANSPORTS=UDPv4
-```
-
-Docker:
-
-```yaml
-network_mode: host
-ipc: host
-```
-
-Host:
-
-```bash
-export FASTDDS_BUILTIN_TRANSPORTS=UDPv4
-```
+No controller mathematics should remain here.
 
 ---
 
-# Python Environment
+PurePursuitController
 
-The project uses
+Responsible for
 
-```text
-/opt/venv
-```
+- steering computation only
 
-for all simulator and bridge dependencies.
-
-Important lesson:
-
-Avoid mixing
-
-```text
-/usr/bin/python3
-```
-
-and
-
-```text
-/opt/venv/bin/python3
-```
-
-inside the same ROS workspace.
-
-A single Python environment prevents package conflicts and simplifies maintenance.
+No ROS code.
 
 ---
 
-# RViz
+WaypointManager
 
-Current configuration
+Responsible for
 
-Fixed Frame
+- loading CSV files
+- waypoint search
+- waypoint reset
+- end-of-path detection
 
-```text
-laser
-```
-
-LaserScan
-
-* Best Effort
-* Volatile
-* Points
-* 5 px
+No ROS code.
 
 ---
 
-# Completed Stages
+VehicleState
 
-✓ ROS package
+Stores
 
-✓ Simulator integration
+- x
+- y
+- yaw
+- speed
+- yaw_rate
 
-✓ LaserScan publishing
-
-✓ RViz visualization
-
-✓ DDS networking
-
-✓ Unified Python environment
+Used by all future planners and controllers.
 
 ---
 
-# Useful Commands
+Bridge Node
 
-Build
+Responsible for
 
-```bash
-colcon build --symlink-install
-```
+- simulator
+- LaserScan
+- Odometry
+- TF
+- Ackermann commands
 
-Source
-
-```bash
-source install/setup.bash
-```
-
-Run bridge
-
-```bash
-ros2 run my_f1tenth_bridge bridge_node
-```
-
-Check topics
-
-```bash
-ros2 topic list
-```
-
-Echo scan
-
-```bash
-ros2 topic echo /scan --once --qos-profile sensor_data
-```
+No planning algorithms.
 
 ---
 
-# Lessons Learned
+## Design Rules
 
-* Build incrementally.
-* Test after every feature.
-* Keep ROS topics standard.
-* Separate simulator logic from ROS interface when possible.
-* Keep Docker reproducible.
-* Document every architecture decision.
+Controllers never publish ROS topics.
+
+WaypointManager never publishes ROS topics.
+
+Bridge never computes steering.
+
+Planner never performs simulator communication.
+
+Utilities never depend on ROS.
 
 ---
 
-# Future Improvements
+## Coding Style
 
-* Automatic Docker startup
-* Version pinning
-* CI build
-* GitHub Actions
-* Documentation website
-* Unit tests
-* Integration tests
+- Small classes
+- Single responsibility
+- Type hints everywhere
+- Minimal logging
+- Parameters from configuration files
+- CSV for paths
+- Future algorithms should plug into the same interfaces
+
+---
+
+## Next Tasks
+
+High priority
+
+- Stanley Controller
+- MPC Controller
+
+Medium priority
+
+- Occupancy Grid
+- A*
+
+Future
+
+- Hybrid A*
+- RRT
+- EKF
+- Particle Filter
+- SLAM
+- Digital Twin
+- Autoware

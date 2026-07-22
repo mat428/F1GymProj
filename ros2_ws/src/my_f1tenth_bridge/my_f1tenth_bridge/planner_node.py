@@ -13,6 +13,7 @@ from typing import List, Tuple, Sequence
 
 from .controllers.pure_pursuit import PurePursuitController
 from .planners.waypoint_manager import WaypointManager
+from .utils.vehicle_state import VehicleState
 
 
 class PurePursuitPlanner(Node):
@@ -59,16 +60,14 @@ class PurePursuitPlanner(Node):
         self.controller = PurePursuitController(self.wheelbase)
 
         # State from odometry
-        self.x = 0.0
-        self.y = 0.0
-        self.yaw = 0.0
+        self.state = VehicleState()
         self.odom_received = False
 
         # Waypoints
 
         # waypoints_flat = self.get_parameter("waypoints_flat").value
         # self.waypoint_manager = WaypointManager(self._parse_waypoints(waypoints_flat))
-        
+
         waypoint_file = self.get_parameter("waypoint_file").value
         self.waypoint_manager = WaypointManager()
         self.waypoint_manager.load_from_csv(waypoint_file)  
@@ -100,14 +99,17 @@ class PurePursuitPlanner(Node):
         self.get_logger().info(f"wheelbase: {self.wheelbase}")
 
     def _on_odom(self, msg: Odometry) -> None:
-        self.x = float(msg.pose.pose.position.x)
-        self.y = float(msg.pose.pose.position.y)
+        self.state.x = float(msg.pose.pose.position.x)
+        self.state.y = float(msg.pose.pose.position.y)
+        
 
         q = msg.pose.pose.orientation
         quat = [q.x, q.y, q.z, q.w]
-        self.yaw = float(Rotation.from_quat(quat).as_euler("xyz")[2])
+        self.state.yaw = float(Rotation.from_quat(quat).as_euler("xyz")[2])
 
         self.odom_received = True
+
+        self.state.speed = float(msg.twist.twist.linear.x)
 
 
     # def _parse_waypoints(self, flat: Sequence[float]) -> List[Tuple[float, float]]:
@@ -122,7 +124,7 @@ class PurePursuitPlanner(Node):
             return
 
         final_x, final_y = self.waypoint_manager.waypoints[-1]
-        final_dist = math.hypot(final_x - self.x, final_y - self.y)
+        final_dist = math.hypot(final_x - self.state.x, final_y - self.state.y)
 
         # Stop at the end of the path
         if (
@@ -138,8 +140,8 @@ class PurePursuitPlanner(Node):
             return
 
         target_point = self.waypoint_manager.get_lookahead_point(
-            self.x,
-            self.y,
+            self.state.x,
+            self.state.y,
             self.lookahead_distance,
         )
 
@@ -147,9 +149,7 @@ class PurePursuitPlanner(Node):
             return
 
         steering = self.controller.compute_steering(
-            x=self.x,
-            y=self.y,
-            yaw=self.yaw,
+            state=self.state,
             target_point=target_point,
         )
 
